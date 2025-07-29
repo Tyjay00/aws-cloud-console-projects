@@ -11,6 +11,9 @@ The objective was to deploy a **Windows Server 2022 EC2 instance** in a **public
 * An active AWS Account.
 * Access to the AWS Management Console.
 
+<img width="2008" height="2684" alt="image" src="https://github.com/user-attachments/assets/d21e342e-53fa-4980-aa07-de77a3a3c6af" />
+
+
 
 ## Step-by-Step Implementation
 
