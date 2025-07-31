@@ -11,11 +11,13 @@ This document provides an overview of the steps taken to successfully deploy Met
 
 The deployment architecture involves several key AWS services:
 
-* **Amazon Elastic Container Service (ECS) with Fargate**: A fully managed container orchestration service that allows running Docker containers without managing underlying servers. **Fargate** eliminates the need to provision, configure, and scale clusters of virtual machines.
-* **Amazon Relational Database Service (RDS) for PostgreSQL**: A managed database service that simplifies the setup, operation, and scaling of a relational database. It provides high availability, automated backups, and patching. In this deployment, **RDS PostgreSQL** serves as the application database for Metabase itself (storing Metabase's configuration, users, dashboards, etc.).
-* **Application Load Balancer (ALB)**: A Layer 7 load balancer that distributes incoming application traffic across multiple targets, such as ECS tasks. It enables advanced routing features and integrates seamlessly with ECS.
-* **Amazon Virtual Private Cloud (VPC) & Subnets**: A logically isolated section of the AWS Cloud where AWS resources are launched. The deployment utilized the default **VPC** and its subnets for network isolation and resource placement.
-* **Security Groups**: Act as virtual firewalls that control inbound and outbound traffic for instances and other resources within a VPC. They are crucial for implementing the principle of least privilege.
+* **Amazon Elastic Container Service (ECS) with Fargate**
+* **Amazon Relational Database Service (RDS) for PostgreSQL**
+* **Application Load Balancer (ALB)**
+* **Amazon Virtual Private Cloud (VPC) & Subnets**
+* **Security Groups**
+
+<img width="3288" height="4328" alt="image" src="https://github.com/user-attachments/assets/c4bd6789-ec8e-4452-8b94-e6109a480129" />
 
 ---
 
@@ -104,9 +106,4 @@ Upon successful deployment, the "Welcome to Metabase" setup screen was accessibl
 <img width="1887" height="962" alt="meta-login" src="https://github.com/user-attachments/assets/64980249-9d03-4321-b912-0727ddb644c0" />
 
 ---
-
-Next steps for the task involve:
-
-* Implementing HTTPS on the ALB for secure access to Metabase.
-* Creating dedicated security groups
   
