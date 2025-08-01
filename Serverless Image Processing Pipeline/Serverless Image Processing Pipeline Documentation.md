@@ -2,6 +2,12 @@
 
 This document provides a step-by-step guide to building and deploying a serverless image processing pipeline on AWS. This pipeline automatically detects labels in an uploaded image using AWS Rekognition, adds a watermark, and saves the processed image to a separate S3 bucket.
 
+
+## The Architecture
+
+<img width="2964" height="2188" alt="image" src="https://github.com/user-attachments/assets/45d2a397-7fae-4c00-a3b0-ccff6e16f313" />
+
+
 -----
 
 ## Initial Setup - AWS Services
