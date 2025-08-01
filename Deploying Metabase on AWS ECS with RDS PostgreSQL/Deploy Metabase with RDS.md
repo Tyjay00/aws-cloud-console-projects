@@ -17,7 +17,8 @@ The deployment architecture involves several key AWS services:
 * **Amazon Virtual Private Cloud (VPC) & Subnets**
 * **Security Groups**
 
-<img width="3284" height="4328" alt="image" src="https://github.com/user-attachments/assets/282f72b6-d34a-4428-bbed-f77374d28874" />
+<img width="3764" height="2164" alt="image" src="https://github.com/user-attachments/assets/fcbfd455-65d9-401e-923f-678c01ddd272" />
+
 
 
 ---
