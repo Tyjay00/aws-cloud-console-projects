@@ -5,8 +5,7 @@ This document provides a step-by-step guide to building and deploying a serverle
 
 ## The Architecture
 
-<img width="2964" height="2188" alt="image" src="https://github.com/user-attachments/assets/45d2a397-7fae-4c00-a3b0-ccff6e16f313" />
-
+<img width="2992" height="2188" alt="image" src="https://github.com/user-attachments/assets/bff0a9b4-5dd1-4d6c-ba98-d53ddec2016c" />
 
 -----
 
