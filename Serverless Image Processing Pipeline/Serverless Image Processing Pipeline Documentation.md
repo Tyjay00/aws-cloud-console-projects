@@ -1,6 +1,6 @@
 # Serverless Image Processing Pipeline Documentation
 
-This document provides a step-by-step guide to building and deploying a serverless image processing pipeline on AWS. This pipeline automatically detects labels in an uploaded image using AWS Rekognition, adds a watermark, and saves the processed image to a separate S3 bucket.
+This document provides a step-by-step guide to building and deploying a serverless image processing pipeline on AWS. This pipeline automatically detects labels in an uploaded image using AWS Rekognition, adds a watermark and saves the processed image to a separate S3 bucket.
 
 
 ## The Architecture
@@ -67,106 +67,94 @@ To ensure your code is portable and secure, the name of the destination S3 bucke
 
 Here is the complete Python code for your `lambda_function.py` file. This code uses the `PROCESSED_BUCKET` environment variable, calls Rekognition, and uses the Pillow library to add a watermark.
 
+
+
 ```python
 import json
 import boto3
 import os
 from PIL import Image, ImageDraw, ImageFont
+from urllib.parse import unquote_plus
 import io
 
-s3_client = boto3.client('s3')
-rekognition_client = boto3.client('rekognition')
+rekognition_client = boto3.client('rekognition', region_name='us-east-1')
+s3_client = boto3.client('s3', region_name='us-east-1')
 
 def lambda_handler(event, context):
     print("Received event: " + json.dumps(event))
 
-    # Get bucket name and object key from the S3 event
     bucket_name = event['Records'][0]['s3']['bucket']['name']
-    object_key = event['Records'][0]['s3']['object']['key']
-
-    # Log the image being processed
+    object_key = unquote_plus(event['Records'][0]['s3']['object']['key'])
     print(f"Processing image {object_key} from bucket: {bucket_name}")
 
-    # Call Rekognition to detect labels
-    try:
-        rekognition_response = rekognition_client.detect_labels(
-            Image={'S3Object': {'Bucket': bucket_name, 'Name': object_key}},
-            MaxLabels=10
-        )
-        print("Detected labels:")
-        for label in rekognition_response['Labels']:
-            print(f"- {label['Name']} (Confidence: {label['Confidence']:.2f}%)")
-    except Exception as e:
-        print(f"Error processing image with Rekognition: {e}")
-        raise e
+    # Detect labels
+    rekognition_response = rekognition_client.detect_labels(
+        Image={'S3Object': {'Bucket': bucket_name, 'Name': object_key}},
+        MaxLabels=10
+    )
+    print("Detected labels:")
+    for label in rekognition_response['Labels']:
+        print(f"- {label['Name']} ({label['Confidence']:.2f}%)")
 
-    # Create a simple text string from the detected labels
     labels = [label['Name'] for label in rekognition_response['Labels']]
     watermark_text = f"Labels: {', '.join(labels[:3])}"
 
-    # Get the image from S3
-    try:
-        response = s3_client.get_object(Bucket=bucket_name, Key=object_key)
-        image_data = response['Body'].read()
-    except Exception as e:
-        print(f"Error getting object from S3: {e}")
-        raise e
+    # Download image from S3
+    response = s3_client.get_object(Bucket=bucket_name, Key=object_key)
+    with response['Body'] as stream:
+        image = Image.open(stream).convert("RGBA")
 
-    # Open the image with Pillow using BytesIO
-    try:
-        image = Image.open(io.BytesIO(image_data))
-        draw = ImageDraw.Draw(image)
-        
-        # Load a font. If this fails, use the default font.
+        draw = ImageDraw.Draw(image, 'RGBA')
         try:
             font = ImageFont.truetype("arial.ttf", 40)
         except IOError:
-            print("Arial.ttf not found, using default font.")
             font = ImageFont.load_default()
-    except Exception as e:
-        print(f"Error processing image with Pillow: {e}")
-        raise e
 
-    # Get text size using textbbox for a more accurate bounding box
-    try:
-        bbox = draw.textbbox((0, 0), watermark_text, font=font)
-        text_width = bbox[2] - bbox[0]
-        text_height = bbox[3] - bbox[1]
-    except AttributeError:
-        # Fallback for older Pillow versions or specific cases if textbbox is not available
-        text_width, text_height = draw.textsize(watermark_text, font=font)
+        try:
+            bbox = draw.textbbox((0, 0), watermark_text, font=font)
+            text_width = bbox[2] - bbox[0]
+            text_height = bbox[3] - bbox[1]
+        except AttributeError:
+            try:
+                text_width, text_height = font.getsize(watermark_text)
+            except AttributeError:
+                mask = font.getmask(watermark_text)
+                text_width, text_height = mask.size
 
-    # Position the watermark in the bottom-left corner
-    x = 10
-    y = image.height - text_height - 10
+        x = 10
+        y = image.height - text_height - 10
 
-    # Draw a semi-transparent background for the watermark text
-    bg_color = (0, 0, 0, 128)  # Semi-transparent black (R, G, B, Alpha)
-    draw.rectangle([x - 5, y - 5, x + text_width + 5, y + text_height + 5], fill=bg_color)
+        draw.rectangle([x - 5, y - 5, x + text_width + 5, y + text_height + 5], fill=(0, 0, 0, 128))
+        draw.text((x, y), watermark_text, fill=(255, 255, 255, 255), font=font)
 
-    # Draw the watermark text
-    draw.text((x, y), watermark_text, fill=(255, 255, 255), font=font)
+        rgb_image = image.convert('RGB')
+        buffer = io.BytesIO()
+        rgb_image.save(buffer, 'JPEG', quality=85, optimize=True)
+        buffer.seek(0)
 
-    # Save the processed image back to S3
     processed_bucket = os.environ.get('PROCESSED_BUCKET')
     if not processed_bucket:
         raise ValueError("PROCESSED_BUCKET environment variable is not set.")
+    processed_key = f"watermarked-{object_key}"
 
-    processed_key = f"processed-{object_key}"
+    print(f"Uploading watermarked image to bucket: {processed_bucket}, key: {processed_key}")
 
     try:
-        image.save('/tmp/processed-image.jpg', 'JPEG')
-        with open('/tmp/processed-image.jpg', 'rb') as f:
-            s3_client.put_object(
-                Bucket=processed_bucket,
-                Key=processed_key,
-                Body=f,
-                ContentType='image/jpeg'
-            )
-        print(f"Successfully processed image and saved to {processed_bucket}/{processed_key}")
+        s3_client.upload_fileobj(buffer, processed_bucket, processed_key,
+                                 ExtraArgs={'ContentType': 'image/jpeg'})
+        print(f"Watermarked image successfully uploaded to {processed_bucket}/{processed_key}")
     except Exception as e:
-        print(f"Error saving processed image to S3: {e}")
-        raise e
+        print(f"Failed to upload watermarked image: {e}")
+        raise
+
+    return {
+        'statusCode': 200,
+        'body': json.dumps({
+            'labels': labels,
+            'watermarked_image': f"s3://{processed_bucket}/{processed_key}"
+        })
+    }
+
 ```
 -----
 
@@ -236,12 +224,23 @@ Image processing can be a resource-intensive task. To prevent the function from 
 With all the above steps complete, the pipeline was ready for a final test. I uploaded an image to the source S3 bucket, and the Lambda function successfully ran from start to finish, saving the final image to the destination S3 bucket.
 
 
-<img width="1912" height="912" alt="image" src="https://github.com/user-attachments/assets/fc63bed4-3381-458d-92ad-cd3000fa3e3c" />
+<img width="1911" height="907" alt="image" src="https://github.com/user-attachments/assets/a689e43b-6790-4644-a31f-acc9e0e8d31d" />
 
 ---
 
-<img width="1897" height="911" alt="image" src="https://github.com/user-attachments/assets/27abdaec-1893-4ecf-9722-31f9edf5fe2f" />
+<img width="1918" height="918" alt="image" src="https://github.com/user-attachments/assets/8fbeeeaf-7925-4187-b3a9-fc6162d00617" />
 
 ---
-<img width="1918" height="918" alt="cloudwatch logs" src="https://github.com/user-attachments/assets/8eacfe09-2f76-4db2-ba0a-aa773fb11ed4" />
+<img width="1918" height="908" alt="image" src="https://github.com/user-attachments/assets/5de45658-fd89-44bd-80cc-1957b76c1158" />
+
+<img width="1887" height="977" alt="image" src="https://github.com/user-attachments/assets/fe4338d0-a928-48f1-b3fa-71ff4c612abf" />
+
+---
+
+## Error Logs on intial testing
+
+* During initial testing, errors occurred when uploading images. The output was not processed to the destination bucket.
+
+<img width="1917" height="917" alt="Cloud Watch Logs Error" src="https://github.com/user-attachments/assets/b363e2cf-44d8-4702-8d7d-a438f4451f8f" />
+<img width="1902" height="912" alt="CloudWatch Logs Successful" src="https://github.com/user-attachments/assets/9e62a989-add5-49f9-b089-d3b46db7eccd" />
 
