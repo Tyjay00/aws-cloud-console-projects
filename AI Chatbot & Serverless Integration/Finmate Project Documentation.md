@@ -1,6 +1,6 @@
 # FinMate: Financial Markets & Loan Hub
 
-## 🔗 Check out the live site here: [FinMate](https://fnbappacademy.tyrone.studio/)
+## 🔗 Check out the live site here: [FinMate](https://fnbappacademy.tyrone.studio/chatbot-lambda.html)
 
 This document provides a comprehensive overview of the Finmate application, its features, technology stack, and setup instructions.
 
