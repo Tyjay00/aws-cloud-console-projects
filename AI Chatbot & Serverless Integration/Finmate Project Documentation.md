@@ -1,7 +1,5 @@
 # FinMate: Financial Markets & Loan Hub
 
-## 🔗 Check out the live site here: [FinMate](https://fnbappacademy.tyrone.studio/chatbot-lambda.html)
-
 This document provides a comprehensive overview of the Finmate application, its features, technology stack, and setup instructions.
 
 Finmate is a web-based financial hub that offers live market data, financial calculators, and an AI chatbot. 
