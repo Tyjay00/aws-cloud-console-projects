@@ -5,7 +5,6 @@ A comprehensive collection of 6 production-ready AWS cloud projects demonstratin
 [![GitHub stars](https://img.shields.io/github/stars/Tyjay00/aws-cloud-console-projects?style=social)](https://github.com/Tyjay00/aws-cloud-console-projects)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![AWS](https://img.shields.io/badge/AWS-Cloud-FF9900?logo=amazon-aws)](https://aws.amazon.com/)
-[![Static Website](https://img.shields.io/badge/Demo-Static_Website-brightgreen?logo=amazonaws)](https://github.com/Tyjay00/aws-cloud-console-projects/tree/main/static-website-on-aws)
 
 ## 🎯 **Portfolio Overview**
 
@@ -15,7 +14,6 @@ This repository showcases **real-world AWS implementations** covering modern clo
 
 | Project | Category | Technologies | Status | Documentation |
 |---------|----------|-------------|--------|-----------|
-| **🌐 Static Website on AWS** | Web Hosting + CDN | S3, CloudFront, Route53, Certificate Manager | ✅ Production | [📋 Setup Guide](./static-website-on-aws/) |
 | **📊 Grafana on ECS Fargate** | Container Orchestration | ECS, Fargate, Monitoring | ✅ Production | 📊 Monitoring |
 | **📈 Metabase BI Platform** | Data Analytics | ECS, RDS PostgreSQL, ALB | ✅ Production | 📈 Analytics |
 | **🖼️ Image Processing Pipeline** | Serverless + AI/ML | Lambda, S3, Rekognition | ✅ Production | 🔄 Automated |
@@ -26,35 +24,7 @@ This repository showcases **real-world AWS implementations** covering modern clo
 
 ## 🏗️ **Project Deep Dive**
 
-### **1. 🌐 Static Website on AWS with Global CDN**
-
-<div align="center">
-
-![Static Website](https://img.shields.io/badge/Architecture-Static_Hosting-FF9900)
-![CDN](https://img.shields.io/badge/CDN-CloudFront-00C7B7)
-![Secure](https://img.shields.io/badge/Security-HTTPS-brightgreen)
-
-</div>
-
-**🎯 Business Challenge:** Deploy a secure, scalable, and cost-effective static website with global content delivery and professional web standards.
-
-**🏗️ Solution Architecture:**
-- **Static Hosting**: Amazon S3 with optimized bucket policies for public read access
-- **Global CDN**: CloudFront distribution with edge caching and compression
-- **DNS Management**: Route53 for custom domain configuration and health monitoring
-- **SSL/TLS**: Certificate Manager for free HTTPS certificates with automated renewal
-
-**💼 Business Impact:**
-- 🌍 **Global Performance**: Sub-100ms response times worldwide via 400+ edge locations
-- 💰 **Cost Optimized**: 90% cost reduction vs traditional hosting solutions
-- ⚡ **High Availability**: 99.99% uptime with enterprise-grade infrastructure
-- � **Security**: HTTPS enforcement, security headers, and DDoS protection
-
-**🔗 [Explore Project](./static-website-on-aws/)**
-
----
-
-### **2. 📊 Deploy Grafana on Amazon ECS with Fargate**
+### **1. 📊 Deploy Grafana on Amazon ECS with Fargate**
 
 <div align="center">
 
@@ -82,7 +52,7 @@ This repository showcases **real-world AWS implementations** covering modern clo
 
 ---
 
-### **3. 📈 Metabase BI Platform on AWS**
+### **2. 📈 Metabase BI Platform on AWS**
 
 <div align="center">
 
@@ -110,7 +80,7 @@ This repository showcases **real-world AWS implementations** covering modern clo
 
 ---
 
-### **4. 🖼️ Serverless Image Processing Pipeline**
+### **3. 🖼️ Serverless Image Processing Pipeline**
 
 <div align="center">
 
@@ -138,7 +108,7 @@ This repository showcases **real-world AWS implementations** covering modern clo
 
 ---
 
-### **5. 💻 Secure Windows EC2 Infrastructure**
+### **4. 💻 Secure Windows EC2 Infrastructure**
 
 <div align="center">
 
@@ -166,7 +136,7 @@ This repository showcases **real-world AWS implementations** covering modern clo
 
 ---
 
-### **6. 🌐 Multi-VPC Enterprise Architecture**
+### **5. 🌐 Multi-VPC Enterprise Architecture**
 
 <div align="center">
 
@@ -200,8 +170,8 @@ This repository showcases **real-world AWS implementations** covering modern clo
 
 | Metric | Value | Description |
 |--------|-------|-------------|
-| **🌟 Total Projects** | 6 | Production-ready AWS implementations |
-| **☁️ AWS Services Used** | 20+ | Comprehensive service coverage |
+| **🌟 Total Projects** | 5 | Production-ready AWS implementations |
+| **☁️ AWS Services Used** | 15+ | Comprehensive service coverage |
 | **🏗️ Architecture Patterns** | 4 | Serverless, Container, Traditional, Hybrid |
 | **🔒 Security Features** | 100% | All projects implement security best practices |
 | **📈 Scalability** | Auto | All architectures support automatic scaling |
