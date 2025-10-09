@@ -219,6 +219,15 @@ Image processing can be a resource-intensive task. To prevent the function from 
 
 -----
 
+## Error Logs on intial testing
+
+* During initial testing, errors occurred when uploading images. The output was not processed to the destination bucket.
+
+<img width="1917" height="917" alt="Cloud Watch Logs Error" src="https://github.com/user-attachments/assets/b363e2cf-44d8-4702-8d7d-a438f4451f8f" />
+<img width="1902" height="912" alt="CloudWatch Logs Successful" src="https://github.com/user-attachments/assets/9e62a989-add5-49f9-b089-d3b46db7eccd" />
+
+---
+
 ## Final Testing and Verification
 
 With all the above steps complete, the pipeline was ready for a final test. I uploaded an image to the source S3 bucket, and the Lambda function successfully ran from start to finish, saving the final image to the destination S3 bucket.
@@ -234,13 +243,4 @@ With all the above steps complete, the pipeline was ready for a final test. I up
 <img width="1918" height="908" alt="image" src="https://github.com/user-attachments/assets/5de45658-fd89-44bd-80cc-1957b76c1158" />
 
 <img width="1887" height="977" alt="image" src="https://github.com/user-attachments/assets/fe4338d0-a928-48f1-b3fa-71ff4c612abf" />
-
----
-
-## Error Logs on intial testing
-
-* During initial testing, errors occurred when uploading images. The output was not processed to the destination bucket.
-
-<img width="1917" height="917" alt="Cloud Watch Logs Error" src="https://github.com/user-attachments/assets/b363e2cf-44d8-4702-8d7d-a438f4451f8f" />
-<img width="1902" height="912" alt="CloudWatch Logs Successful" src="https://github.com/user-attachments/assets/9e62a989-add5-49f9-b089-d3b46db7eccd" />
 

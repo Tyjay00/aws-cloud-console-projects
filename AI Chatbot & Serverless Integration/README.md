@@ -3,9 +3,6 @@
 ## 🎯 Goal
 FinMate is a web-based financial hub that provides live market data, financial calculators, and an AI-powered chatbot for 24/7 customer support and personalized financial insights.
 
-## 🔗 Live Demo
-[FinMate Application](https://fnbappacademy.tyrone.studio/chatbot-lambda.html)
-
 ## 🛠️ Tech Stack
 - **AWS Services:**
   - AWS Lambda (Serverless compute)
