@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoelsCloud Services</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind to use Inter font and specific colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#4338CA', // A dark indigo/purple for the hero
+                        'highlight-yellow': '#FBBF24', // Amber/Yellow for highlights
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Use Inter font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Ensures the whole page uses the Inter font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb; /* Light background for the body */
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- 1. Navigation Bar (Header) -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="#" class="text-xl font-bold text-primary-blue tracking-tight">
+                    JoelsCloud <span class="text-gray-700 font-medium">services</span>
+                </a>
+
+                <!-- Navigation Links (Hidden on small screens, shown in a mobile menu usually, but here we keep it simple) -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-primary-blue transition duration-150">Home</a>
+                    <a href="#" class="text-gray-700 hover:text-primary-blue transition duration-150">Services</a>
+                    <a href="#" class="text-gray-700 hover:text-primary-blue transition duration-150">About Us</a>
+                    <a href="#" class="text-gray-700 hover:text-primary-blue transition duration-150">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Hero Section (The prominent blue banner) -->
+    <section class="bg-primary-blue py-16 sm:py-24 lg:py-32 shadow-xl">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4">
+                Your Gateway to <span class="text-highlight-yellow">Free Web Services</span>
+            </h1>
+            <p class="mt-4 text-xl text-indigo-200">
+                Unlock the power of the web without the cost.
+            </p>
+            <div class="mt-10">
+                <a href="#" class="inline-block px-8 py-3 text-base font-medium rounded-xl text-white bg-transparent border-2 border-white hover:bg-white hover:text-primary-blue transition duration-300 transform hover:scale-105 shadow-lg">
+                    Explore Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Services Section (Grid of Cards) -->
+    <section class="py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-primary-blue text-center mb-12">
+                Our Free Web Services
+            </h2>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Service Card 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 border border-gray-100">
+                    <div class="text-2xl mb-4 flex items-center">
+                        <span class="mr-3 text-red-500 text-3xl">🚀</span>
+                        <h3 class="font-bold text-gray-900">Basic Web Hosting</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Get your website online and maintain reliability. Normally, completely free to customers in the US. Perfect for free personal, catalogue, small, small projects.
+                    </p>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 border border-gray-100">
+                    <div class="text-2xl mb-4 flex items-center">
+                        <span class="mr-3 text-green-500 text-3xl">🔗</span>
+                        <h3 class="font-bold text-gray-900">Subdomain Provision</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Claim your site with an URL tailor-made for your project (e.g., yoursite.joelscloud.net) and start your online presence today.
+                    </p>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 border border-gray-100">
+                    <div class="text-2xl mb-4 flex items-center">
+                        <span class="mr-3 text-yellow-500 text-3xl">🔒</span>
+                        <h3 class="font-bold text-gray-900">Simple Site Builder Access</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Secure your site with free SSL certificates (e.g., encrypted domain with an end-date and start-date) to fully secure all visitors.
+                    </p>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 border border-gray-100">
+                    <div class="text-2xl mb-4 flex items-center">
+                        <span class="mr-3 text-blue-500 text-3xl">📊</span>
+                        <h3 class="font-bold text-gray-900">Client Collaborations</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Work together with clients or team members easily within our platform, fostering seamless development and project management.
+                    </p>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 border border-gray-100">
+                    <div class="text-2xl mb-4 flex items-center">
+                        <span class="mr-3 text-indigo-500 text-3xl">🌐</span>
+                        <h3 class="font-bold text-gray-900">CDN Optimization</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Accelerate your website delivery globally using our Content Delivery Network (CDN) integration for fast, low-latency performance.
+                    </p>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 border border-gray-100">
+                    <div class="text-2xl mb-4 flex items-center">
+                        <span class="mr-3 text-purple-500 text-3xl">⚙️</span>
+                        <h3 class="font-bold text-gray-900">Shell Provisioning</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Access command-line tools and environments through secure shell provisioning for advanced configuration and management tasks.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Footer -->
+    <footer class="bg-gray-100 mt-16 py-8 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500">
+            &copy; 2024 JoelsCloud Services. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
