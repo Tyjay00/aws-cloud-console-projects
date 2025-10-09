@@ -1,21 +1,21 @@
 # 🚀 AWS Cloud Console Projects Portfolio
 
-A comprehensive collection of 6 production-ready AWS cloud projects demonstrating hands-on expertise in serverless architectures, container orchestration, AI/ML integration, and enterprise-grade cloud solutions.
+A comprehensive collection of 6 production-ready AWS cloud projects demonstrating hands-on expertise in serverless architectures, container orchestration, web hosting, and enterprise-grade cloud solutions.
 
 [![GitHub stars](https://img.shields.io/github/stars/Tyjay00/aws-cloud-console-projects?style=social)](https://github.com/Tyjay00/aws-cloud-console-projects)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![AWS](https://img.shields.io/badge/AWS-Cloud-FF9900?logo=amazon-aws)](https://aws.amazon.com/)
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?logo=amazonaws)](https://fnbappacademy.tyrone.studio/chatbot-lambda.html)
+[![Static Website](https://img.shields.io/badge/Demo-Static_Website-brightgreen?logo=amazonaws)](https://github.com/Tyjay00/aws-cloud-console-projects/tree/main/static-website-on-aws)
 
 ## 🎯 **Portfolio Overview**
 
-This repository showcases **real-world AWS implementations** covering modern cloud architectures, from serverless microservices to container orchestration and AI-powered solutions. Each project demonstrates production-ready practices with comprehensive documentation and live examples.
+This repository showcases **real-world AWS implementations** covering modern cloud architectures, from serverless microservices to container orchestration and static web hosting solutions. Each project demonstrates production-ready practices with comprehensive documentation and practical examples.
 
 ## 📦 **Featured Projects**
 
-| Project | Category | Technologies | Status | Live Demo |
+| Project | Category | Technologies | Status | Documentation |
 |---------|----------|-------------|--------|-----------|
-| **🤖 FinMate AI Chatbot** | Serverless + AI | Lambda, API Gateway, AI Integration | ✅ Production | [View Demo](https://fnbappacademy.tyrone.studio/chatbot-lambda.html) |
+| **🌐 Static Website on AWS** | Web Hosting + CDN | S3, CloudFront, Route53, Certificate Manager | ✅ Production | [📋 Setup Guide](./static-website-on-aws/) |
 | **📊 Grafana on ECS Fargate** | Container Orchestration | ECS, Fargate, Monitoring | ✅ Production | 📊 Monitoring |
 | **📈 Metabase BI Platform** | Data Analytics | ECS, RDS PostgreSQL, ALB | ✅ Production | 📈 Analytics |
 | **🖼️ Image Processing Pipeline** | Serverless + AI/ML | Lambda, S3, Rekognition | ✅ Production | 🔄 Automated |
@@ -26,31 +26,31 @@ This repository showcases **real-world AWS implementations** covering modern clo
 
 ## 🏗️ **Project Deep Dive**
 
-### **1. 🤖 FinMate: AI Chatbot & Serverless Integration**
+### **1. 🌐 Static Website on AWS with Global CDN**
 
 <div align="center">
 
-![Serverless](https://img.shields.io/badge/Architecture-Serverless-FF9900)
-![AI](https://img.shields.io/badge/AI-Powered-00C7B7)
-![Live](https://img.shields.io/badge/Status-Live-brightgreen)
+![Static Website](https://img.shields.io/badge/Architecture-Static_Hosting-FF9900)
+![CDN](https://img.shields.io/badge/CDN-CloudFront-00C7B7)
+![Secure](https://img.shields.io/badge/Security-HTTPS-brightgreen)
 
 </div>
 
-**🎯 Business Challenge:** Create a scalable financial services platform with real-time market data and AI-powered customer support.
+**🎯 Business Challenge:** Deploy a secure, scalable, and cost-effective static website with global content delivery and professional web standards.
 
 **🏗️ Solution Architecture:**
-- **Frontend**: Responsive web application with real-time market data
-- **Backend**: Serverless microservices using AWS Lambda
-- **AI Integration**: Intelligent chatbot for 24/7 customer support
-- **Data Sources**: Live financial market data via Finnhub API
+- **Static Hosting**: Amazon S3 with optimized bucket policies for public read access
+- **Global CDN**: CloudFront distribution with edge caching and compression
+- **DNS Management**: Route53 for custom domain configuration and health monitoring
+- **SSL/TLS**: Certificate Manager for free HTTPS certificates with automated renewal
 
 **💼 Business Impact:**
-- 🕒 **24/7 Availability**: No server management, automatic scaling
-- 💰 **Cost Optimized**: Pay-per-request serverless model
-- ⚡ **High Performance**: Sub-200ms response times
-- 📈 **Scalable**: Handles traffic spikes automatically
+- 🌍 **Global Performance**: Sub-100ms response times worldwide via 400+ edge locations
+- 💰 **Cost Optimized**: 90% cost reduction vs traditional hosting solutions
+- ⚡ **High Availability**: 99.99% uptime with enterprise-grade infrastructure
+- � **Security**: HTTPS enforcement, security headers, and DDoS protection
 
-**🔗 [Explore Project](./AI%20Chatbot%20%26%20Serverless%20Integration/) | [Live Demo](https://fnbappacademy.tyrone.studio/chatbot-lambda.html)**
+**🔗 [Explore Project](./static-website-on-aws/)**
 
 ---
 
@@ -201,7 +201,7 @@ This repository showcases **real-world AWS implementations** covering modern clo
 | Metric | Value | Description |
 |--------|-------|-------------|
 | **🌟 Total Projects** | 6 | Production-ready AWS implementations |
-| **☁️ AWS Services Used** | 15+ | Comprehensive service coverage |
+| **☁️ AWS Services Used** | 20+ | Comprehensive service coverage |
 | **🏗️ Architecture Patterns** | 4 | Serverless, Container, Traditional, Hybrid |
 | **🔒 Security Features** | 100% | All projects implement security best practices |
 | **📈 Scalability** | Auto | All architectures support automatic scaling |
@@ -226,15 +226,17 @@ This repository showcases **real-world AWS implementations** covering modern clo
 | **🖥️ Compute** | EC2, ECS, Fargate, Lambda | Expert ⭐⭐⭐⭐⭐ |
 | **🗄️ Storage** | S3, EBS | Expert ⭐⭐⭐⭐⭐ |
 | **🗃️ Database** | RDS PostgreSQL | Advanced ⭐⭐⭐⭐ |
-| **🌐 Networking** | VPC, Subnets, IGW, ALB, Peering | Expert ⭐⭐⭐⭐⭐ |
+| **🌐 Networking** | VPC, Subnets, IGW, ALB, Peering, CloudFront | Expert ⭐⭐⭐⭐⭐ |
 | **🤖 AI/ML** | Rekognition | Advanced ⭐⭐⭐⭐ |
-| **🔒 Security** | IAM, Security Groups, Key Pairs | Expert ⭐⭐⭐⭐⭐ |
+| **🔒 Security** | IAM, Security Groups, Certificate Manager | Expert ⭐⭐⭐⭐⭐ |
 | **📊 Monitoring** | CloudWatch, Grafana | Advanced ⭐⭐⭐⭐ |
+| **🌍 Content Delivery** | CloudFront, Route53 | Expert ⭐⭐⭐⭐⭐ |
 
 </div>
 
 ### **💻 Development & Tools**
 - **Languages**: Python, JavaScript, HTML/CSS, Bash
+- **Web Technologies**: Tailwind CSS, Responsive Design, Modern CSS
 - **Containerization**: Docker, container registries
 - **AWS SDKs**: Boto3, AWS CLI
 - **Image Processing**: Pillow, computer vision
@@ -250,9 +252,9 @@ This repository showcases **real-world AWS implementations** covering modern clo
 
 ### **🎯 Recommended Learning Path**
 
-1. **🌟 Beginner**: Start with Windows EC2 project
+1. **🌟 Beginner**: Start with Static Website on AWS project
 2. **⭐⭐ Intermediate**: Explore Serverless Image Processing
-3. **⭐⭐⭐ Advanced**: Implement FinMate AI Chatbot
+3. **⭐⭐⭐ Advanced**: Deploy Secure Windows EC2 Infrastructure
 4. **⭐⭐⭐⭐ Expert**: Deploy Metabase BI Platform
 5. **⭐⭐⭐⭐⭐ Architecture**: Build Multi-VPC Enterprise setup
 
